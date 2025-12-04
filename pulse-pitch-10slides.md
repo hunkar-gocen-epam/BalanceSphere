@@ -174,20 +174,24 @@ Want to explore options?"
 
 ---
 
-# The Ask
+# Our Team
 
-### Built on What We Have
+### Team BalanceSphere
 
-**Phase 1 (Months 1-3):** Teams bot + LOAD engine, 500 users
+**🎯 Hunkar Gocen**
+- Senior Manager, Data & Analytics
+- Data strategy, POI algorithm design, analytics vision
 
-**Phase 2 (Months 4-6):** + REST engine, 2,000 users
+**🔧 Oleg Sidorenko**
+- Data Solution Architect
+- System architecture, AI/ML integration, technical feasibility
 
-**Phase 3 (Months 7-12):** + BOND engine + Manager view, full scale
+**🤖 Aliaksei Babuk**
+- Cloud Engineering Manager
+- Infrastructure design, EPAM tool integration, scalability
 
-### The Insight
+**🎨 Marin Komadina**
+- Senior Delivery Manager
+- Delivery perspective, implementation roadmap, change management
 
-> "The project was **Green**. Arjun was **Yellow**."
->
-> **PULSE sees both.**
-
-**Your tools already know you're struggling. Let's teach them to care.**
+> **Together:** 40+ years combined experience building enterprise solutions that put people first.
