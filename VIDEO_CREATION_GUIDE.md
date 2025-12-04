@@ -99,6 +99,60 @@
 
 ---
 
+## 🎨 USING OUR PRODUCTION-READY ASSETS
+
+### **✅ Logos (./logos/)**
+
+**PULSE Logo:** `./logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png`
+- Beautiful heartbeat wave design with coral/teal gradient
+- Use for: Opening title, closing credits, watermark
+- Works great on dark OR light backgrounds
+
+**BalanceSphere Logo:** `./logos/BalanceSphere.png`
+- Orbital sphere design in teal/blue
+- Use for: Team branding, closing credits
+- Place in corner as watermark throughout video
+
+### **✅ High-Fidelity Mockups (./mockups/)**
+
+**1. LOAD Engine - Proactive Check-in** (`ss_proactivecheckin.png`)
+- Shows Arjun receiving PULSE alert
+- PULSE Score: 67/100 with metrics
+- Perfect for: Scene 5 (Arjun's story, 1:30-1:50)
+- Ready to use - no editing needed!
+
+**2. REST Engine - Vacation Protection** (`ss_vacationprotection.png`)
+- Shows Maria's vacation prep with PULSE
+- Checklist, handoff automation, return support
+- Perfect for: Scene 6 (Maria's story, 1:50-2:10)
+- Shows REST engine in action!
+
+**3. Manager Dashboard** (`ss_managerdashboard.png`)
+- Team health overview (8 healthy, 3 moderate, 1 at risk)
+- Privacy-first design - NO individual names shown
+- Perfect for: Scene 8 (Privacy & Trust, 2:25-2:35)
+- Demonstrates "patterns, not policing"
+
+### **How to Use in Your Video:**
+
+**For Synthesia:**
+1. Upload all 3 mockups as media assets
+2. Insert at the timestamps indicated above
+3. Add 3-4 second hold on each mockup
+4. Zoom slightly on PULSE score for emphasis
+
+**For Pictory:**
+1. Upload mockups to media library
+2. Replace auto-selected stock footage with our mockups
+3. Sync to voiceover mentions of Arjun/Maria/Privacy
+
+**For Manual Editing:**
+1. Import all mockups as PNG layers
+2. Add subtle zoom animations (Ken Burns effect)
+3. Highlight key areas (PULSE score, metrics, privacy note)
+
+---
+
 ## 🎬 DETAILED PROMPTS FOR VIDEO CREATION
 
 ---
@@ -420,15 +474,25 @@ Visual Elements Needed:
   - "Let's teach them to care."
 - Final frame:
   ```
-  PULSE
-  Your Personal Wellbeing Companion
+  [PULSE LOGO - centered, large]
   
+  PULSE
+  The Invisible Safety Net
+  
+  [BalanceSphere LOGO]
   Team BalanceSphere
+  
   Hunkar Gocen • Oleg Sidorenko
   Aliaksei Babuk • Marin Komadina
   
   EPAM Wellbeing Ideathon 2025
+  
+  github.com/hunkar-gocen-epam/BalanceSphere
   ```
+  
+**Asset Files to Use:**
+- PULSE logo: `./logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png`
+- Team logo: `./logos/BalanceSphere.png`
 
 ---
 
@@ -536,30 +600,31 @@ Key Direction:
 #### Dashboard Mockup:
 ```
 Create a realistic dashboard mockup showing multiple EPAM systems (RADAR, JIRA, Staffing, Telescope, People Portal, Vacation, Time Portal) all displaying green checkmarks and healthy status indicators. Make it look like a real enterprise monitoring dashboard. Style: Professional, clean, slightly corporate blue theme.
+
+Or use stock footage of dashboard interfaces with green checkmarks/success indicators.
 ```
 
 #### PULSE Bot Interface:
 ```
-Create a Microsoft Teams chat interface mockup showing a friendly bot named "PULSE" having a caring conversation with a user named Arjun. 
+✅ USE OUR ACTUAL MOCKUP: ./mockups/ss_proactivecheckin.png
 
-Bot message: 
-"Hi Arjun 👋 Quick check-in — I've noticed some patterns this week:
-📅 38 hours of meetings (team avg: 25)
-🌙 Activity after 9 PM on 4 nights
-📋 8 tasks in progress simultaneously
+This is a real, high-fidelity Microsoft Teams interface showing PULSE bot with:
+- PULSE logo (heartbeat design)
+- Actual Teams UI (purple sidebar, chat interface)
+- Real conversation with Arjun showing:
+  - PULSE Score: 67/100 (yellow/warning state)
+  - Three metrics: 📅 38 hrs meetings, 🌙 4 nights after 9 PM, 📋 8 tasks
+  - Action buttons: "Let's Talk", "See Full Report", "Remind Me Later"
 
-Your PULSE: 🟡 67/100
-
-No pressure to act, but I wanted you to know I see it. Want to explore options?"
-
-Action buttons: [Show Me Options] [I'm Managing Fine] [Talk to Someone]
-
-Style: Microsoft Teams aesthetic, warm and supportive, not clinical
+For video: Import this PNG directly - it's production-ready and branded!
 ```
 
 #### PULSE Score Visual:
 ```
-Create a circular progress indicator showing "PULSE Score: 67/100" in yellow/amber color (caution state). Include subtle heartbeat line graphic in background. Make it feel like a caring health metric, not a performance score. Add small icons around it: 🔥 Load, 🛡️ Rest, 💚 Bond
+✅ INCLUDED IN OUR MOCKUP: ./mockups/ss_proactivecheckin.png
+
+Shows circular PULSE score (67/100) in yellow gradient, plus three metric cards below.
+You can zoom into this section for close-up shots, or use the full mockup.
 ```
 
 #### Architecture Diagram:
@@ -584,25 +649,28 @@ Style: Modern, clean, flowing connections, EPAM blue color scheme
 
 #### Privacy Firewall Diagram:
 ```
-Create a split diagram showing privacy separation:
+✅ USE OUR ACTUAL MOCKUP: ./mockups/ss_managerdashboard.png
 
-LEFT SIDE - Employee View:
-👤 Full visibility icon
-"You see everything about yourself"
-- Full PULSE score breakdown
-- All signals and data sources
-- Complete control over sharing
+This shows the REAL manager view with:
+- Team health overview (8 healthy, 3 moderate, 1 at risk)
+- "1 team member showing elevated stress patterns" (NO NAMES!)
+- Team trends and insights
+- Privacy-first design clearly visible
 
-CENTER: 🔒 Privacy Firewall 🔒
+Use this to demonstrate that managers NEVER see individual names.
+```
 
-RIGHT SIDE - Manager View:
-👥 Aggregated view icon
-"Managers see patterns only"
-- "1 team member elevated" (no names)
-- Team workload distribution
-- Suggested actions
+#### Vacation Protection Interface:
+```
+✅ USE OUR ACTUAL MOCKUP: ./mockups/ss_vacationprotection.png
 
-Style: Clean, trustworthy, security-focused, use locks/shields
+Shows Maria's vacation preparation with REST Engine:
+- Vacation prep checklist (handoff, delegation, calendar blocking)
+- Return-to-work support plan
+- Conversational AI helping draft handoff notes
+- Real Teams interface with PULSE assistance
+
+Perfect for Maria's story segment (1:50-2:10)!
 ```
 
 ---
@@ -680,13 +748,15 @@ Royalty-free music sources:
 4. Generate draft video
 5. Review and adjust timing
 
-**Day 2 (2 hours):**
-1. Create custom graphics in Canva:
-   - Dashboard mockup
-   - PULSE bot interface
-   - 3 engines diagram
-   - Privacy firewall
-2. Export as PNG
+**Day 2 (1 hour):**
+1. ✅ Use our existing mockups (already production-ready!):
+   - `./mockups/ss_proactivecheckin.png` - LOAD Engine (Arjun's story)
+   - `./mockups/ss_vacationprotection.png` - REST Engine (Maria's story)
+   - `./mockups/ss_managerdashboard.png` - Manager view (Privacy section)
+2. Create only these additional graphics in Canva:
+   - 3 engines diagram (LOAD/REST/BOND side-by-side)
+   - Tech architecture diagram
+3. Export as PNG
 
 **Day 3 (1 hour):**
 1. Upload custom graphics to Synthesia
