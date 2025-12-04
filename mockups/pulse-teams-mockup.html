@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE - Microsoft Teams Integration Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f2f1;
+            padding: 20px;
+        }
+
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        /* Teams Header */
+        .teams-header {
+            background: #464775;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .teams-header .logo {
+            font-weight: bold;
+            color: white;
+            font-size: 16px;
+        }
+
+        .teams-header .search {
+            flex: 1;
+            max-width: 400px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+        }
+
+        /* Main Layout */
+        .teams-layout {
+            display: flex;
+            height: 700px;
+        }
+
+        /* Left Sidebar */
+        .teams-sidebar {
+            width: 68px;
+            background: #464775;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 0;
+            gap: 4px;
+        }
+
+        .sidebar-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 20px;
+        }
+
+        .sidebar-icon:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .sidebar-icon.active {
+            background: rgba(255,255,255,0.15);
+            border-left: 3px solid #6264A7;
+        }
+
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e1dfdd;
+        }
+
+        .chat-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e1dfdd;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pulse-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #2a9d8f;
+        }
+
+        .pulse-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-title {
+            flex: 1;
+        }
+
+        .chat-title h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #242424;
+        }
+
+        .chat-title p {
+            font-size: 12px;
+            color: #616161;
+        }
+
+        /* Messages */
+        .messages-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f3f2f1;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .message-content {
+            max-width: 70%;
+        }
+
+        .message.user .message-content {
+            text-align: right;
+        }
+
+        .message-bubble {
+            background: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+        }
+
+        .message.user .message-bubble {
+            background: #6264A7;
+            color: white;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: #616161;
+            margin-top: 4px;
+        }
+
+        /* Pulse Card */
+        .pulse-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #f59e0b;
+            margin-top: 12px;
+        }
+
+        .pulse-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .pulse-score {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .pulse-card h3 {
+            font-size: 16px;
+            color: #242424;
+            margin-bottom: 4px;
+        }
+
+        .pulse-card p {
+            font-size: 13px;
+            color: #616161;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .metric {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .metric-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #616161;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #242424;
+            margin-top: 4px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #6264A7;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #535491;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #242424;
+            border: 1px solid #e1dfdd;
+        }
+
+        .btn-secondary:hover {
+            background: #f3f2f1;
+        }
+
+        /* Right Panel */
+        .right-panel {
+            width: 360px;
+            background: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .panel-section {
+            margin-bottom: 24px;
+        }
+
+        .panel-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #242424;
+        }
+
+        .suggestion-card {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .suggestion-card:hover {
+            background: #f3f2f1;
+        }
+
+        .suggestion-card h4 {
+            font-size: 13px;
+            color: #242424;
+            margin-bottom: 4px;
+        }
+
+        .suggestion-card p {
+            font-size: 12px;
+            color: #616161;
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-indicator.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-indicator.healthy {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .mockup-title {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #2a9d8f 0%, #264653 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .mockup-title .logos {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .mockup-title .pulse-logo {
+            height: 60px;
+        }
+
+        .mockup-title .team-logo {
+            height: 50px;
+        }
+
+        .mockup-title h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .mockup-title p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-title">
+        <div class="logos">
+            <img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE Logo" class="pulse-logo">
+            <img src="../logos/Image (10).png" alt="BalanceSphere Logo" class="team-logo">
+        </div>
+        <h1>PULSE - Microsoft Teams Integration</h1>
+        <p>High-Fidelity Mockups | Team BalanceSphere</p>
+    </div>
+
+    <!-- Mockup 1: Proactive Check-in -->
+    <div class="mockup-container">
+        <div class="teams-header">
+            <div class="logo">⊞ Microsoft Teams</div>
+            <div class="search">🔍 Search</div>
+        </div>
+        
+        <div class="teams-layout">
+            <div class="teams-sidebar">
+                <div class="sidebar-icon">📊</div>
+                <div class="sidebar-icon">💬</div>
+                <div class="sidebar-icon">👥</div>
+                <div class="sidebar-icon active">💜</div>
+                <div class="sidebar-icon">📞</div>
+            </div>
+            
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="pulse-avatar">
+                        <img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE">
+                    </div>
+                    <div class="chat-title">
+                        <h2>PULSE Assistant</h2>
+                        <p>Your Personal Wellbeing Companion</p>
+                    </div>
+                    <span class="status-indicator healthy">
+                        <span class="status-dot"></span>
+                        Active
+                    </span>
+                </div>
+                
+                <div class="messages-container">
+                    <div class="message">
+                        <div class="pulse-avatar"><img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE"></div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p><strong>Hi Arjun 👋</strong></p>
+                                <p style="margin-top: 8px;">I've noticed some patterns in your work schedule that I wanted to check in about.</p>
+                                
+                                <div class="pulse-card">
+                                    <div class="pulse-card-header">
+                                        <div class="pulse-score">67</div>
+                                        <div>
+                                            <h3>Your PULSE Score</h3>
+                                            <span class="status-indicator warning">
+                                                <span class="status-dot"></span>
+                                                Needs Attention
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="metrics-grid">
+                                        <div class="metric">
+                                            <div class="metric-icon">📅</div>
+                                            <div class="metric-label">Meetings</div>
+                                            <div class="metric-value">38 hrs</div>
+                                            <p style="font-size: 11px; color: #f59e0b; margin-top: 4px;">+52% vs team avg</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">🌙</div>
+                                            <div class="metric-label">Late Activity</div>
+                                            <div class="metric-value">4 nights</div>
+                                            <p style="font-size: 11px; color: #f59e0b; margin-top: 4px;">After 9 PM</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">📋</div>
+                                            <div class="metric-label">Active Tasks</div>
+                                            <div class="metric-value">8 tasks</div>
+                                            <p style="font-size: 11px; color: #616161; margin-top: 4px;">In progress</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <p style="margin-top: 16px; font-size: 13px; color: #242424;">
+                                        <strong>What this means:</strong> Your workload is significantly above team average, and late-night activity suggests you may be experiencing pressure. Would you like to explore some options?
+                                    </p>
+                                    
+                                    <div class="action-buttons">
+                                        <button class="btn btn-primary">💬 Let's Talk</button>
+                                        <button class="btn btn-secondary">📊 See Full Report</button>
+                                        <button class="btn btn-secondary">⏰ Remind Me Later</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message-time">2:34 PM • Today</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="panel-section">
+                    <h3>🎯 Quick Actions</h3>
+                    <div class="suggestion-card">
+                        <h4>🛡️ Block Focus Time</h4>
+                        <p>Reserve 2-hour blocks for deep work this week</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>📧 Draft Message to Manager</h4>
+                        <p>I'll help you communicate your workload concerns</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>🔄 Use Recovery Credit</h4>
+                        <p>Take a mental health day with pre-approved time off</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>📅 Optimize Meetings</h4>
+                        <p>Review 12 recurring meetings for potential optimization</p>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>💡 Insights</h3>
+                    <div class="suggestion-card">
+                        <h4>Team Comparison</h4>
+                        <p>Your meeting load is 52% above team average. 3 team members have similar patterns.</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Historical Trend</h4>
+                        <p>Your PULSE was 85/100 four weeks ago. The decline started after the new project kickoff.</p>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>🔒 Your Privacy</h3>
+                    <p style="font-size: 12px; color: #616161; line-height: 1.5;">
+                        Only you can see this detailed view. Your manager sees team patterns only ("1 member needs attention" - no names). 
+                        <a href="#" style="color: #6264A7;">Learn more</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mockup 2: Manager Dashboard View -->
+    <div class="mockup-container">
+        <div class="teams-header">
+            <div class="logo">⊞ Microsoft Teams</div>
+            <div class="search">🔍 Search</div>
+        </div>
+        
+        <div class="teams-layout">
+            <div class="teams-sidebar">
+                <div class="sidebar-icon">📊</div>
+                <div class="sidebar-icon">💬</div>
+                <div class="sidebar-icon">👥</div>
+                <div class="sidebar-icon active">💜</div>
+                <div class="sidebar-icon">📞</div>
+            </div>
+            
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="pulse-avatar"><img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE"></div>
+                    <div class="chat-title">
+                        <h2>PULSE Team Dashboard</h2>
+                        <p>Team Wellbeing Overview</p>
+                    </div>
+                </div>
+                
+                <div class="messages-container">
+                    <div class="message">
+                        <div class="pulse-avatar"><img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE"></div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p><strong>Weekly Team PULSE Summary</strong></p>
+                                <p style="margin-top: 8px;">Here's your team's wellbeing overview for this week.</p>
+                                
+                                <div class="pulse-card" style="border-left-color: #10b981;">
+                                    <div class="metrics-grid" style="grid-template-columns: repeat(4, 1fr);">
+                                        <div class="metric">
+                                            <div class="metric-icon">😊</div>
+                                            <div class="metric-label">Healthy</div>
+                                            <div class="metric-value">8 members</div>
+                                            <p style="font-size: 11px; color: #10b981; margin-top: 4px;">80-100 PULSE</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">😐</div>
+                                            <div class="metric-label">Moderate</div>
+                                            <div class="metric-value">3 members</div>
+                                            <p style="font-size: 11px; color: #f59e0b; margin-top: 4px;">60-79 PULSE</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">😟</div>
+                                            <div class="metric-label">At Risk</div>
+                                            <div class="metric-value">1 member</div>
+                                            <p style="font-size: 11px; color: #ef4444; margin-top: 4px;">&lt;60 PULSE</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">📈</div>
+                                            <div class="metric-label">Trending</div>
+                                            <div class="metric-value">+5%</div>
+                                            <p style="font-size: 11px; color: #10b981; margin-top: 4px;">vs last week</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pulse-card" style="border-left-color: #f59e0b;">
+                                    <h3>⚠️ Attention Needed</h3>
+                                    <p style="margin: 12px 0;">1 team member is showing elevated stress patterns.</p>
+                                    
+                                    <div style="background: #f9fafb; padding: 16px; border-radius: 6px; margin: 12px 0;">
+                                        <p style="font-size: 13px; color: #242424;"><strong>Identified Patterns:</strong></p>
+                                        <ul style="margin: 8px 0 0 20px; font-size: 13px; color: #616161;">
+                                            <li>Consistently high meeting load (+50% above team)</li>
+                                            <li>Regular after-hours activity (4 nights this week)</li>
+                                            <li>Lower than usual social interaction</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <p style="font-size: 12px; color: #616161; margin: 12px 0;">
+                                        <strong>Privacy Note:</strong> Individual names are never shown. PULSE has already reached out to this team member with support options.
+                                    </p>
+                                    
+                                    <div class="action-buttons">
+                                        <button class="btn btn-primary">📋 Review Team Workload</button>
+                                        <button class="btn btn-secondary">💡 Get Suggestions</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="message-time">9:00 AM • Monday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="panel-section">
+                    <h3>💡 Manager Insights</h3>
+                    <div class="suggestion-card">
+                        <h4>🎯 Sprint Planning</h4>
+                        <p>Next sprint capacity: 85% (adjusted for current team load)</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>📅 Meeting Optimization</h4>
+                        <p>3 recurring meetings have &lt;50% attendance - consider restructuring</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>🌴 PTO Planning</h4>
+                        <p>2 team members haven't taken time off in 12+ weeks</p>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>📊 Team Trends (30 days)</h3>
+                    <div class="suggestion-card">
+                        <h4>Overall Health: Stable</h4>
+                        <p>Average PULSE: 78/100 (↑5% from last month)</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Social Connection</h4>
+                        <p>6 virtual coffee chats this week (+20%)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mockup 3: Vacation Protection -->
+    <div class="mockup-container">
+        <div class="teams-header">
+            <div class="logo">⊞ Microsoft Teams</div>
+            <div class="search">🔍 Search</div>
+        </div>
+        
+        <div class="teams-layout">
+            <div class="teams-sidebar">
+                <div class="sidebar-icon">📊</div>
+                <div class="sidebar-icon">💬</div>
+                <div class="sidebar-icon">👥</div>
+                <div class="sidebar-icon active">💜</div>
+                <div class="sidebar-icon">📞</div>
+            </div>
+            
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="pulse-avatar"><img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE"></div>
+                    <div class="chat-title">
+                        <h2>PULSE Assistant</h2>
+                        <p>Your Personal Wellbeing Companion</p>
+                    </div>
+                </div>
+                
+                <div class="messages-container">
+                    <div class="message">
+                        <div class="pulse-avatar"><img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE"></div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p><strong>Hi Maria! 🌴</strong></p>
+                                <p style="margin-top: 8px;">I see you have vacation scheduled starting next Monday. Let me help you prepare for a truly restful break.</p>
+                                
+                                <div class="pulse-card" style="border-left-color: #06b6d4;">
+                                    <h3>🛡️ REST Engine: Vacation Protection</h3>
+                                    <p style="margin: 12px 0;">Your vacation: <strong>Dec 9-20 (2 weeks)</strong></p>
+                                    
+                                    <div style="background: #f0f9ff; padding: 16px; border-radius: 6px; margin: 16px 0;">
+                                        <p style="font-size: 13px; color: #242424; margin-bottom: 12px;"><strong>✅ Preparation Checklist</strong></p>
+                                        <div style="font-size: 13px; color: #616161;">
+                                            <div style="margin-bottom: 8px;">✅ Set out-of-office (Dec 9-20)</div>
+                                            <div style="margin-bottom: 8px;">✅ Delegate 8 tasks to teammates</div>
+                                            <div style="margin-bottom: 8px;">✅ Block calendar for return (Dec 21 morning)</div>
+                                            <div style="margin-bottom: 8px;">⏳ Send handoff notes (3 pending)</div>
+                                            <div>⏳ Schedule pre-vacation meeting with Sarah</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="action-buttons">
+                                        <button class="btn btn-primary">📝 Complete Handoff</button>
+                                        <button class="btn btn-secondary">📅 Schedule Meeting</button>
+                                    </div>
+                                </div>
+
+                                <div class="pulse-card" style="border-left-color: #10b981; margin-top: 16px;">
+                                    <h3>🎯 Return-to-Work Support</h3>
+                                    <p style="margin: 12px 0;">I'll help you ease back into work when you return.</p>
+                                    
+                                    <div style="background: #f0fdf4; padding: 16px; border-radius: 6px; margin: 12px 0;">
+                                        <p style="font-size: 13px; color: #242424; margin-bottom: 8px;"><strong>Scheduled for Dec 21:</strong></p>
+                                        <ul style="margin-left: 20px; font-size: 13px; color: #616161;">
+                                            <li style="margin-bottom: 6px;">2-hour catch-up block (9-11 AM)</li>
+                                            <li style="margin-bottom: 6px;">No meetings before lunch</li>
+                                            <li style="margin-bottom: 6px;">Priority updates summary ready</li>
+                                            <li>Optional: 30-min check-in with your team</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <p style="font-size: 12px; color: #616161; margin-top: 12px;">
+                                        💬 <strong>Note:</strong> I'll automatically silence all work notifications during your vacation. You deserve a real break!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="message-time">3:15 PM • Dec 4</div>
+                        </div>
+                    </div>
+
+                    <div class="message user">
+                        <div class="pulse-avatar" style="background: #6264A7;">M</div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p>This is amazing! Can you help me draft the handoff notes?</p>
+                            </div>
+                            <div class="message-time">3:17 PM • Dec 4</div>
+                        </div>
+                    </div>
+
+                    <div class="message">
+                        <div class="pulse-avatar"><img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE"></div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p><strong>Absolutely! 📝</strong></p>
+                                <p style="margin-top: 8px;">I've analyzed your current workload and drafted handoff notes based on your active projects. Here's what I prepared...</p>
+                                
+                                <div style="background: #f9fafb; padding: 16px; border-radius: 6px; margin-top: 12px;">
+                                    <p style="font-size: 12px; color: #616161; margin-bottom: 8px;"><strong>To: Sarah Chen</strong></p>
+                                    <p style="font-size: 13px; color: #242424; margin-bottom: 8px;"><strong>Subject: Coverage During My Vacation (Dec 9-20)</strong></p>
+                                    <p style="font-size: 13px; color: #616161; line-height: 1.5;">
+                                        Hi Sarah,<br><br>
+                                        I'll be on vacation Dec 9-20. Here's the coverage plan:<br><br>
+                                        <strong>Active Projects:</strong><br>
+                                        • Client Portal: Waiting for design review (no action needed)<br>
+                                        • API Migration: On track, next milestone is Dec 22<br>
+                                        • Security Audit: Sarah Chen is handling<br><br>
+                                        For urgent issues, please contact Sarah or escalate to Alex.<br><br>
+                                        Thanks!
+                                    </p>
+                                </div>
+                                
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary">✉️ Send Now</button>
+                                    <button class="btn btn-secondary">✏️ Edit First</button>
+                                </div>
+                            </div>
+                            <div class="message-time">3:18 PM • Dec 4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="panel-section">
+                    <h3>📊 Vacation Stats</h3>
+                    <div class="suggestion-card">
+                        <h4>PTO Balance</h4>
+                        <p>12 days remaining after this vacation</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Team Coverage</h4>
+                        <p>7 teammates available during your break</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Previous Return</h4>
+                        <p>Last vacation: returned to 47 emails, 12 meetings. This time will be easier! 💪</p>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h3>💡 Tips for Your Break</h3>
+                    <div class="suggestion-card">
+                        <h4>🔕 Disconnect Fully</h4>
+                        <p>Notifications will be silenced. Your team has coverage.</p>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>🧘 Recharge Activities</h4>
+                        <p>Studies show 2-week breaks significantly improve creativity and focus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

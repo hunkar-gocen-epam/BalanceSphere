@@ -9,15 +9,60 @@ transition: slide-left
 mdc: true
 ---
 
-# PULSE
+<style>
+/* Add BalanceSphere watermark to all slides */
+.slidev-page:not(.slidev-page-1)::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: url('./logos/BalanceSphere.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.25;
+  z-index: 100;
+}
+</style>
+
+---
+
+<div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+  <img src="./logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE Logo" style="height: 140px;" />
+</div>
 
 ### *The Invisible Safety Net for Distributed Teams*
 
-**Team BalanceSphere**
+<div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 2rem;">
+  <img src="./logos/BalanceSphere.png" alt="BalanceSphere Logo" style="height: 70px;" />
+  <div style="text-align: left;">
+    <strong style="font-size: 1.1em;">Team BalanceSphere</strong><br/>
+    <span style="font-size: 0.9em;">Hunkar Gocen • Oleg Sidorenko • Aliaksei Babuk • Marin Komadina</span>
+  </div>
+</div>
 
-Hunkar Gocen • Oleg Sidorenko • Aliaksei Babuk • Marin Komadina
+<div style="margin-top: 3rem;">
 
 > *"Your tools already know. PULSE makes them care."*
+
+</div>
+
+<style>
+  .slidev-layout {
+    position: relative;
+  }
+  .slidev-layout::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background: url('./logos/BalanceSphere.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.3;
+  }
+</style>
 
 ---
 
@@ -25,21 +70,31 @@ Hunkar Gocen • Oleg Sidorenko • Aliaksei Babuk • Marin Komadina
 
 ### "The Project Was Green. The Person Was Yellow."
 
-**What Everyone Sees — EPAM's 16+ Systems:**
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**What Everyone Sees:**
 
 All systems showing ✅ GREEN:
-- 📊 RADAR - Project on track
-- 📋 JIRA - Sprint velocity healthy  
-- 📅 STAFFING - Resources allocated
-- 🔭 TELESCOPE - Skills updated
-- 👤 PEOPLE PORTAL - Profile complete
-- 🏢 DELIVERY CENTRAL - Client healthy
+- 📊 RADAR - On track
+- 📋 JIRA - Velocity healthy  
+- 📅 STAFFING - Allocated
+- 🔭 TELESCOPE - Updated
+- 👤 PEOPLE PORTAL - Complete
+- 🏢 DELIVERY - Healthy
+
+</div>
+<div>
 
 **What Nobody Sees:**
-- 😰 Arjun: Coding until 1 AM for 3 weeks
-- 😔 Maria: Carrying all presales work (untracked)
-- 😶 Alex: No informal conversation in 4 weeks
-- 😟 Jordan: Dreading "vacation" — fears return chaos
+
+- 😰 **Arjun:** Coding until 1 AM for 3 weeks
+- 😔 **Maria:** Carrying all presales (untracked)
+- 😶 **Alex:** No informal talk in 4 weeks
+- 😟 **Jordan:** Dreading "vacation" return
+
+</div>
+</div>
 
 ---
 
@@ -64,17 +119,26 @@ All systems showing ✅ GREEN:
 
 ### PULSE: Your Personal Wellbeing Companion
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+
 **What PULSE Is:**
-- Personal AI assistant in Microsoft Teams
-- Proactively reaches out when struggling
-- Reads signals from existing tools
-- A colleague that notices
+- ✅ Personal AI assistant in Teams
+- ✅ Proactively reaches out
+- ✅ Reads existing tool signals
+- ✅ A colleague that notices
+
+</div>
+<div>
 
 **What PULSE Is NOT:**
-- ❌ Another portal to log into
+- ❌ Another portal
 - ❌ Employee surveillance
-- ❌ Performance evaluation tool
+- ❌ Performance evaluation
 - ❌ Emotion detection AI
+
+</div>
+</div>
 
 ---
 
@@ -82,40 +146,70 @@ All systems showing ✅ GREEN:
 
 ### Three Core Engines
 
-**🔥 LOAD Engine** - "Who's drowning?"
-- Monitors workload patterns
+<div class="grid grid-cols-3 gap-4">
+<div>
+
+**🔥 LOAD Engine**
+*"Who's drowning?"*
+
+- Monitors workload
 - Proactive check-ins
 - Actionable suggestions
 
-**🛡️ REST Engine** - "Can you rest?"
-- Vacation prep & protection
-- Return-to-work support
+</div>
+<div>
 
-**💚 BOND Engine** - "Are you connected?"
-- Social connection monitoring
-- Virtual coffee matching
+**🛡️ REST Engine**
+*"Can you rest?"*
+
+- Vacation prep
+- Return support
+- PTO protection
+
+</div>
+<div>
+
+**💚 BOND Engine**
+*"Connected?"*
+
+- Social monitoring
+- Coffee matching
+- Team belonging
+
+</div>
+</div>
 
 ---
 
 # Real Example: LOAD Engine
 
-**PULSE Bot in Teams:**
+<div class="grid grid-cols-2 gap-8">
+<div>
 
-"Hi Arjun 👋 Quick check-in — I've noticed:
+### PULSE in Action
 
-- 📅 38 hours of meetings (team avg: 25)
-- 🌙 Activity after 9 PM on 4 nights
-- 📋 8 tasks in progress simultaneously
+**Proactive Check-in:**
+- 📅 38 hrs meetings (+52%)
+- 🌙 4 nights after 9 PM  
+- 📋 8 tasks in progress
 
-**Your PULSE: 🟡 67/100**
+**PULSE Score: 🟡 67/100**
 
-Want to explore options?"
+**Smart Actions:**
+- 🛡️ Block focus time
+- 📧 Draft manager message
+- 🔄 Use recovery credit
+- 📅 Optimize meetings
 
-**Actions:**
-- Block focus time
-- Review meetings
-- Draft workload message
-- Use recovery credit
+</div>
+<div style="display: flex; align-items: center; justify-content: center; background: #f3f2f1; border-radius: 8px; padding: 20px;">
+
+![PULSE Check-in](./mockups/ss_proactivecheckin.png)
+
+<p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #616161;">*Native Microsoft Teams Integration*</p>
+
+</div>
+</div>
 
 ---
 
@@ -123,38 +217,63 @@ Want to explore options?"
 
 ### For Everyone
 
+<div class="grid grid-cols-3 gap-4">
+<div>
+
 **👤 Employees:**
-- Early support before burnout
-- Protected vacation time
-- Hidden work acknowledged
+- Early support
+- Protected PTO
+- Work recognized
+
+</div>
+<div>
 
 **👥 Managers:**
-- See patterns, not surveillance
-- Early intervention signals
-- Privacy-first alerts
+- See patterns
+- Early signals
+- Privacy-first
+
+</div>
+<div>
 
 **🏢 EPAM:**
-- 30% reduction in burnout attrition
-- 40% increase in PTO utilization
-- +35 points in wellbeing scores
+- 30% less burnout
+- 40% more PTO
+- +35 wellbeing
+
+</div>
+</div>
 
 ---
 
 # Privacy First
 
+<div class="grid grid-cols-2 gap-8">
+<div>
+
 ### The Trust Contract
 
 | Principle | Implementation |
 |-----------|---------------|
-| **Opt-In Only** | Explicit consent required |
+| **Opt-In Only** | Explicit consent |
 | **Patterns, Not Policing** | Aggregates only |
-| **Employee Owns Data** | Full visibility & control |
-| **Managers See Teams** | Never individual names |
-| **No Performance Link** | Never used for reviews |
+| **Employee Owns Data** | Full control |
+| **Managers See Teams** | No names shown |
+| **No Performance Link** | Never for reviews |
 
 **Privacy Firewall:**
-- Employee: Sees everything, full control
-- Manager: Team patterns only ("1 member elevated")
+- **Employee:** Full visibility & control
+- **Manager:** Team patterns only
+
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+![Manager Dashboard](./mockups/ss_managerdashboard.png)
+
+<p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #616161;">*Manager sees "1 member needs attention" - no names*</p>
+
+</div>
+</div>
 
 ---
 
@@ -164,13 +283,13 @@ Want to explore options?"
 
 | Metric | Value |
 |--------|-------|
-| Cost of employee replacement | $45,000 |
-| Burnout attrition (1,000 employees) | ~180 people = $8.1M/year |
+| Cost of employee replacement | $150,000 |
+| Burnout attrition (1,000 employees) | ~180 people = $27M/year |
 | PULSE prevents 20% of burnout | 36 people saved |
-| **Annual savings** | **$1.62M** |
+| **Annual savings** | **$5.4M** |
 | Phase 1 investment | ~$165K |
 
-## **10x ROI in Year One**
+## **33x ROI in Year One**
 
 ---
 
@@ -178,20 +297,43 @@ Want to explore options?"
 
 ### Team BalanceSphere
 
+<div class="grid grid-cols-2 gap-6">
+<div>
+
 **🎯 Hunkar Gocen**
-- Senior Manager, Data & Analytics
-- Data strategy, POI algorithm design, analytics vision
+
+*Senior Manager, Data & Analytics*
+
+- Data strategy & analytics vision
+
+<br/>
 
 **🔧 Oleg Sidorenko**
-- Data Solution Architect
-- System architecture, AI/ML integration, technical feasibility
+
+*Data Solution Architect*
+
+- AI/ML integration & architecture
+
+</div>
+<div>
 
 **🤖 Aliaksei Babuk**
-- Cloud Engineering Manager
-- Infrastructure design, EPAM tool integration, scalability
+
+*Cloud Engineering Manager*
+
+- Infrastructure & scalability
+
+<br/>
 
 **🎨 Marin Komadina**
-- Senior Delivery Manager
-- Delivery perspective, implementation roadmap, change management
 
-> **Together:** 40+ years combined experience building enterprise solutions that put people first.
+*Senior Delivery Manager*
+
+- Implementation & change mgmt
+
+</div>
+</div>
+
+<br/>
+
+> **Together:** 40+ years building enterprise solutions that put people first.

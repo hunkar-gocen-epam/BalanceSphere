@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE Check-in Screenshot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f2f1;
+        }
+
+        .screenshot-container {
+            width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .teams-header {
+            background: #464775;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .teams-header .logo {
+            font-weight: bold;
+            color: white;
+            font-size: 16px;
+        }
+
+        .teams-layout {
+            display: flex;
+            height: 600px;
+        }
+
+        .teams-sidebar {
+            width: 68px;
+            background: #464775;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 0;
+            gap: 4px;
+        }
+
+        .sidebar-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .sidebar-icon.active {
+            background: rgba(255,255,255,0.15);
+            border-left: 3px solid #6264A7;
+        }
+
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e1dfdd;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pulse-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #2a9d8f;
+        }
+
+        .pulse-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .chat-title h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #242424;
+            margin: 0;
+        }
+
+        .chat-title p {
+            font-size: 12px;
+            color: #616161;
+            margin: 0;
+        }
+
+        .messages-container {
+            flex: 1;
+            padding: 20px;
+            background: #f3f2f1;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+        }
+
+        .message-content {
+            max-width: 80%;
+        }
+
+        .message-bubble {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .pulse-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #f59e0b;
+            margin-top: 12px;
+        }
+
+        .pulse-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .pulse-score {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .pulse-card h3 {
+            font-size: 16px;
+            color: #242424;
+            margin: 0 0 4px 0;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .metric {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .metric-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #616161;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #242424;
+            margin-top: 4px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: #6264A7;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #242424;
+            border: 1px solid #e1dfdd;
+        }
+    </style>
+</head>
+<body>
+    <div class="screenshot-container">
+        <div class="teams-header">
+            <div class="logo">⊞ Microsoft Teams</div>
+        </div>
+        
+        <div class="teams-layout">
+            <div class="teams-sidebar">
+                <div class="sidebar-icon">📊</div>
+                <div class="sidebar-icon">💬</div>
+                <div class="sidebar-icon">👥</div>
+                <div class="sidebar-icon active">💜</div>
+                <div class="sidebar-icon">📞</div>
+            </div>
+            
+            <div class="chat-area">
+                <div class="chat-header">
+                    <div class="pulse-avatar">
+                        <img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE">
+                    </div>
+                    <div class="chat-title">
+                        <h2>PULSE Assistant</h2>
+                        <p>Your Personal Wellbeing Companion</p>
+                    </div>
+                </div>
+                
+                <div class="messages-container">
+                    <div class="message">
+                        <div class="pulse-avatar">
+                            <img src="../logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-bubble">
+                                <p><strong>Hi Arjun 👋</strong></p>
+                                <p style="margin-top: 8px;">I've noticed some patterns in your work schedule that I wanted to check in about.</p>
+                                
+                                <div class="pulse-card">
+                                    <div class="pulse-card-header">
+                                        <div class="pulse-score">67</div>
+                                        <div>
+                                            <h3>Your PULSE Score</h3>
+                                            <span class="status-indicator">
+                                                <span class="status-dot"></span>
+                                                Needs Attention
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="metrics-grid">
+                                        <div class="metric">
+                                            <div class="metric-icon">📅</div>
+                                            <div class="metric-label">Meetings</div>
+                                            <div class="metric-value">38 hrs</div>
+                                            <p style="font-size: 11px; color: #f59e0b; margin-top: 4px;">+52% vs team avg</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">🌙</div>
+                                            <div class="metric-label">Late Activity</div>
+                                            <div class="metric-value">4 nights</div>
+                                            <p style="font-size: 11px; color: #f59e0b; margin-top: 4px;">After 9 PM</p>
+                                        </div>
+                                        <div class="metric">
+                                            <div class="metric-icon">📋</div>
+                                            <div class="metric-label">Active Tasks</div>
+                                            <div class="metric-value">8 tasks</div>
+                                            <p style="font-size: 11px; color: #616161; margin-top: 4px;">In progress</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <p style="margin-top: 16px; font-size: 13px; color: #242424;">
+                                        <strong>What this means:</strong> Your workload is significantly above team average. Would you like to explore some options?
+                                    </p>
+                                    
+                                    <div class="action-buttons">
+                                        <button class="btn btn-primary">💬 Let's Talk</button>
+                                        <button class="btn btn-secondary">📊 See Full Report</button>
+                                        <button class="btn btn-secondary">⏰ Remind Me Later</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
