@@ -10,59 +10,47 @@ mdc: true
 ---
 
 <style>
-/* Add BalanceSphere watermark to all slides */
+/* Add BalanceSphere watermark to all slides except cover */
 .slidev-page:not(.slidev-page-1)::after {
   content: '';
   position: absolute;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   background: url('./logos/BalanceSphere.png') no-repeat center;
   background-size: contain;
-  opacity: 0.25;
+  opacity: 0.3;
   z-index: 100;
+  pointer-events: none;
 }
 </style>
 
 ---
 
 <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-  <img src="./logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE Logo" style="height: 140px;" />
+  <img src="./logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE Logo" style="height: 180px;" />
 </div>
+
+<div style="text-align: center;">
 
 ### *The Invisible Safety Net for Distributed Teams*
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 2rem;">
-  <img src="./logos/BalanceSphere.png" alt="BalanceSphere Logo" style="height: 70px;" />
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 2.5rem;">
+  <img src="./logos/BalanceSphere.png" alt="BalanceSphere Logo" style="height: 90px;" />
   <div style="text-align: left;">
     <strong style="font-size: 1.1em;">Team BalanceSphere</strong><br/>
     <span style="font-size: 0.9em;">Hunkar Gocen • Oleg Sidorenko • Aliaksei Babuk • Marin Komadina</span>
   </div>
 </div>
 
-<div style="margin-top: 3rem;">
+<div style="margin-top: 3rem; text-align: center;">
 
 > *"Your tools already know. PULSE makes them care."*
 
 </div>
-
-<style>
-  .slidev-layout {
-    position: relative;
-  }
-  .slidev-layout::after {
-    content: '';
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 80px;
-    height: 80px;
-    background: url('./logos/BalanceSphere.png') no-repeat center;
-    background-size: contain;
-    opacity: 0.3;
-  }
-</style>
 
 ---
 
@@ -207,6 +195,36 @@ All systems showing ✅ GREEN:
 ![PULSE Check-in](./mockups/ss_proactivecheckin.png)
 
 <p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #616161;">*Native Microsoft Teams Integration*</p>
+
+</div>
+</div>
+
+---
+
+# Real Example: REST Engine
+
+<div class="grid grid-cols-2 gap-8">
+<div>
+
+### Vacation Protection
+
+**Pre-Vacation Support:**
+- 📝 Handoff checklist
+- 👥 Task delegation
+- 📅 Calendar blocking
+- ✉️ OOO automation
+
+**Return-to-Work:**
+- 🛡️ No meetings AM
+- 📊 Priority summary
+- 🕐 2-hour catch-up block
+
+</div>
+<div style="display: flex; align-items: center; justify-content: center; background: #f3f2f1; border-radius: 8px; padding: 20px;">
+
+![Vacation Protection](./mockups/ss_vacationprotection.png)
+
+<p style="text-align: center; margin-top: 10px; font-size: 0.9em; color: #616161;">*Helping Maria prepare for real rest*</p>
 
 </div>
 </div>
