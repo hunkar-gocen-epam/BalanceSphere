@@ -4,7 +4,7 @@
 
 **Team BalanceSphere** | EPAM Wellbeing Ideathon 2025
 
-[![View Presentation](https://img.shields.io/badge/View-Presentation-6264A7?style=for-the-badge&logo=microsoft-powerpoint)](./pulse-pitch-10slides.pptx)
+[![View Presentation](https://img.shields.io/badge/View-Presentation-6264A7?style=for-the-badge&logo=microsoft-powerpoint)](./PULSE%20-%20BalanceSphere.pptx)
 [![Live Mockups](https://img.shields.io/badge/Try-Live%20Mockups-2a9d8f?style=for-the-badge&logo=microsoft-teams)](./mockups/pulse-teams-mockup.html)
 
 ---
@@ -61,7 +61,7 @@ While EPAM's 16+ systems track projects, deliverables, and technical health, **n
 
 ### 📄 Key Documents
 
-- **[pulse-pitch-10slides.pptx](./pulse-pitch-10slides.pptx)** - Main presentation (11 slides)
+- **[PULSE - BalanceSphere.pptx](./PULSE%20-%20BalanceSphere.pptx)** - Main presentation (11 slides)
 - **[PULSE_FINAL_PITCH.md](./PULSE_FINAL_PITCH.md)** - Complete pitch document
 - **[mockups/pulse-teams-mockup.html](./mockups/pulse-teams-mockup.html)** - Interactive UI mockups
 
@@ -164,7 +164,7 @@ Implementation & change management
 ## 📞 Contact & Links
 
 - **Repository:** [github.com/hunkar-gocen-epam/BalanceSphere](https://github.com/hunkar-gocen-epam/BalanceSphere)
-- **Presentation:** [Download PPTX](./pulse-pitch-10slides.pptx)
+- **Presentation:** [Download PPTX](./PULSE%20-%20BalanceSphere.pptx)
 - **Interactive Demo:** [View Mockups](./mockups/pulse-teams-mockup.html)
 
 ---

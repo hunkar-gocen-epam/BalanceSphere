@@ -26,8 +26,6 @@ mdc: true
 }
 </style>
 
----
-
 <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
   <img src="./logos/ChatGPT Image Dec 4, 2025, 03_27_54 PM.png" alt="PULSE Logo" style="height: 180px;" />
 </div>
